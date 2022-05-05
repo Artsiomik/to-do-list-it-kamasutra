@@ -1,0 +1,35 @@
+.App {
+    padding: 30px;
+    display: flex;
+    margin: 50px auto;
+    justify-content: space-evenly
+}
+
+.App > div {
+    min-width: 210px;
+    margin-right: 50px;
+}
+
+.delete {
+    margin: 0 0 0 10px;
+}
+
+.error {
+    border: red 1px solid;
+}
+
+.error-message {
+    color: red;
+}
+
+.active-filter {
+    background-color: aquamarine;
+}
+
+.is-done {
+    opacity: 0.5;
+}
+
+.titleDelete {
+    margin: 0 0px 0 10px;
+}
