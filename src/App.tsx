@@ -19,13 +19,14 @@ type TasksStateType = {
 function App() {
 
     const changeStatus = (taskId: string, isDone: boolean, ToDoListID: string) => {
-        let tasks = tasksObj[ToDoListID]
-        let task = tasks.find(el => (el.id === taskId)
-        )
-        if (task) {
-            task.isDone = isDone
-            setTasksObj({...tasksObj})
-        }
+        // let tasks = tasksObj[ToDoListID]
+        // let task = tasks.find(el => (el.id === taskId)
+        // )
+        // if (task) {
+        //     task.isDone = isDone
+        //     setTasksObj({...tasksObj})
+        // } -- можно так реализовать, но строка ниже более проще через тернарное вырвжение
+        setTasksObj({...tasksObj, [ToDoListID]: tasksObj[ToDoListID].map(maped => maped.id === taskId ? {...maped, isDone: isDone} : maped)})
     }
 
     const changeStatusTitle = (taskId: string, newTitle: string, ToDoListID: string) => {
@@ -40,45 +41,52 @@ function App() {
 
     const changeFilterHandler = (value: FilterValueType, ToDoListID: string) => {
 
-        const toDoList = toDoLists.find(el => el.id === ToDoListID)
-        if (toDoList) {
-            toDoList.filter = value
-            setToDoList([...toDoLists])
-        }
+        // const toDoList = toDoLists.find(el => el.id === ToDoListID)
+        // if (toDoList) {
+        //     toDoList.filter = value
+        //     setToDoLists([...toDoLists])
+        // } -- можно так реализовать, но строка ниже более проще через тернарное вырвжение
+        setToDoLists(toDoLists.map(maped => maped.id === ToDoListID
+            ? {...maped, filter: value}
+            : maped))
     }
+
 
     const removeToDoListHandler = (ToDoListID: string) => {
         let filteredToDoList = toDoLists.filter(el => el.id !== ToDoListID)
-        setToDoList(filteredToDoList)
+        setToDoLists(filteredToDoList)
         delete tasksObj[ToDoListID]
         setTasksObj(tasksObj)
     }
 
     const changeToDoListTitle = (ToDoListID: string, NewTitle: string) => {
         const toDoList = toDoLists.find(el => el.id === ToDoListID)
-        if(toDoList){
+        if (toDoList) {
             toDoList.title = NewTitle
-            setToDoList([...toDoLists])
+            setToDoLists([...toDoLists])
         }
     }
 
     const removeTask = (id: string, ToDoListID: string) => {
-        let tasks = tasksObj[ToDoListID]
-        tasksObj[ToDoListID] = tasks.filter((el) => el.id !== id)
-        setTasksObj({...tasksObj})
+        // let tasks = tasksObj[ToDoListID]
+        // tasksObj[ToDoListID] = tasks.filter((el) => el.id !== id)
+        // setTasksObj({...tasksObj}) -- можно так реализовать, но строка ниже более проще
+        setTasksObj({...tasksObj, [ToDoListID]: tasksObj[ToDoListID].filter((el) => el.id !== id)})
     }
 
     const addTask = (newTitle: string, ToDoListID: string) => {
-        let newTask = {id: v1(), title: newTitle, isDone: false};
-        let tasks = tasksObj[ToDoListID]
-        tasksObj[ToDoListID] = [newTask, ...tasks]
-        setTasksObj({...tasksObj})
+        // let newTask = {id: v1(), title: newTitle, isDone: false};
+        // let tasks = tasksObj[ToDoListID]
+        // tasksObj[ToDoListID] = [newTask, ...tasks]
+        // setTasksObj({...tasksObj}) -- можно так реализовать, но 2 строки ниже более проще
+        const newTask = {id: v1(), title: newTitle, isDone: false};
+        setTasksObj({...tasksObj, [ToDoListID]:[newTask, ...tasksObj[ToDoListID]]})
     }
 
     const ToDoListID1 = v1();
     const ToDoListID2 = v1();
 
-    const [toDoLists, setToDoList] = useState<Array<ToDoListType>>([
+    const [toDoLists, setToDoLists] = useState<Array<ToDoListType>>([
         {id: ToDoListID1, title: 'What to learn', filter: 'All'},
         {id: ToDoListID2, title: 'What to buy', filter: 'All'},
     ])
@@ -102,7 +110,7 @@ function App() {
             title: title,
             filter: 'All',
         }
-        setToDoList([toDoList, ...toDoLists])
+        setToDoLists([toDoList, ...toDoLists])
         setTasksObj({
             ...tasksObj,
             [toDoList.id]: []
@@ -130,13 +138,13 @@ function App() {
                         id={el.id}
                         key={el.id}
                         title={el.title}
+                        filter={el.filter}
                         addTask={addTask}
                         tasksObj={filteredTask}
                         removeTask={removeTask}
                         changeFilterHandler={changeFilterHandler}
                         changeStatusTitle={changeStatusTitle}
                         changeStatus={changeStatus}
-                        filter={el.filter}
                         removeToDoListHandler={removeToDoListHandler}
                         changeToDoListTitle={changeToDoListTitle}
                     />)
