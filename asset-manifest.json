@@ -1,22 +1,13 @@
 {
   "files": {
-    "main.css": "/to-do-list-it-kamasutra/static/css/main.48e9433a.chunk.css",
-    "main.js": "/to-do-list-it-kamasutra/static/js/main.c465c3f5.chunk.js",
-    "main.js.map": "/to-do-list-it-kamasutra/static/js/main.c465c3f5.chunk.js.map",
-    "runtime-main.js": "/to-do-list-it-kamasutra/static/js/runtime-main.93c42b6c.js",
-    "runtime-main.js.map": "/to-do-list-it-kamasutra/static/js/runtime-main.93c42b6c.js.map",
-    "static/js/2.d99582fe.chunk.js": "/to-do-list-it-kamasutra/static/js/2.d99582fe.chunk.js",
-    "static/js/2.d99582fe.chunk.js.map": "/to-do-list-it-kamasutra/static/js/2.d99582fe.chunk.js.map",
+    "main.css": "/to-do-list-it-kamasutra/static/css/main.751477e3.css",
+    "main.js": "/to-do-list-it-kamasutra/static/js/main.910b4789.js",
     "index.html": "/to-do-list-it-kamasutra/index.html",
-    "precache-manifest.450f76753418dc4de4130e53755224d7.js": "/to-do-list-it-kamasutra/precache-manifest.450f76753418dc4de4130e53755224d7.js",
-    "service-worker.js": "/to-do-list-it-kamasutra/service-worker.js",
-    "static/css/main.48e9433a.chunk.css.map": "/to-do-list-it-kamasutra/static/css/main.48e9433a.chunk.css.map",
-    "static/js/2.d99582fe.chunk.js.LICENSE.txt": "/to-do-list-it-kamasutra/static/js/2.d99582fe.chunk.js.LICENSE.txt"
+    "main.751477e3.css.map": "/to-do-list-it-kamasutra/static/css/main.751477e3.css.map",
+    "main.910b4789.js.map": "/to-do-list-it-kamasutra/static/js/main.910b4789.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.93c42b6c.js",
-    "static/js/2.d99582fe.chunk.js",
-    "static/css/main.48e9433a.chunk.css",
-    "static/js/main.c465c3f5.chunk.js"
+    "static/css/main.751477e3.css",
+    "static/js/main.910b4789.js"
   ]
 }
