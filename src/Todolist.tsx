@@ -55,9 +55,7 @@ export function Todolist(props: PropsType) {
                 }
                 const onChangeTitleHandler = (newValue: string) => {
                     props.changeStatusTitle(el.id, newValue, props.id)
-
                 }
-
 
                 const removeTaskHandler = () => props.removeTask(el.id, props.id)
 
